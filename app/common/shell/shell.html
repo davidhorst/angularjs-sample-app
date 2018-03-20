@@ -1,0 +1,30 @@
+<div id="shell" layout="row" layout-fill>
+  <side-nav id="sidenav" layout="column"></side-nav>
+  
+  <section id="body" layout="column" layout-fill>
+
+    <top-nav layout="row"></top-nav>
+
+      
+      
+      <div 
+      id="content" 
+      ui-view="" 
+      ng-if="$ctrl.isActive('prefs.**') || $ctrl.isActive('home') || $ctrl.isActive('welcome')">
+      </div>
+
+      <div
+      ui-view="mymessages" 
+      ng-show="$ctrl.isActive('mymessages.**')"
+      >
+    </div>
+      
+      <div
+      ui-view="contacts" 
+      ng-show="$ctrl.isActive('contacts.**')"
+      >
+    </div>
+
+
+</section>
+</div>

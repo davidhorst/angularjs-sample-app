@@ -1,0 +1,31 @@
+<md-card flex="40">
+  <md-card-title>
+    <md-card-title-text>
+      <span class="md-headline">{{$ctrl.contact.name.first}} {{$ctrl.contact.name.last}}</span>
+      <span class="md-subhead" ng-show=$ctrl.contact.company>{{ $ctrl.contact.company }}</span>
+    </md-card-title-text>
+    <md-card-title-media>
+      <img ng-src="{{$ctrl.contact.picture}}" class="md-media-lg card-media" alt="contact photo">
+    </md-card-title-media>
+  </md-card-title>
+  <md-card-content layout="column">
+    <div><label>Age: </label>{{$ctrl.contact.age}}</div>
+    <div><label>Phone: </label>{{$ctrl.contact.phone}}</div>
+    <div><label>Email: </label>{{$ctrl.contact.email}}</div>
+    <div class="flex-h">
+      <label>Address: </label>
+      <div>{{$ctrl.contact.address.street}}<br>
+            {{$ctrl.contact.address.city}}, {{$ctrl.contact.address.state}} {{$ctrl.contact.address.zip}}
+      </div>
+    </div>
+  </md-card-content>
+  <md-card-actions layout="row" layout-align="end center">
+    <md-button ui-sref="mymessages.compose({ message: { to: $ctrl.contact.email } })">
+      <span>Message</span>
+    </md-button>
+    <!-- This md-button has a relative ui-sref to the contacts.contact.edit state. -->
+    <md-button ui-sref=".edit">
+      <span>Edit Contact</span>
+    </md-button>
+  </md-card-actions>
+</md-card>

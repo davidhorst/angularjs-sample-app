@@ -1,0 +1,29 @@
+    <md-toolbar layout="row" class="md-whiteframe-glow-z1 site-content-toolbar">
+      <div class="md-toolbar-tools">
+        <md-button
+          show-xs
+          hide-gt-sm
+          class="md-icon-button" 
+          aria-label="menu" 
+          ng-click="$ctrl.toggleSideNav()">
+          <md-icon><i class="material-icons">menu</i></md-icon>
+        </md-button>
+          
+        <h2><span>Dashboard</span></h2>
+        <span flex></span> 
+   
+        <img hide-gt-md ng-src="/dist/profile_icon.jpg" style="border-radius:50%; height:75%;"  alt="avatar">
+
+        <h2 hide show-gt-md>{{ $ctrl.emailAddress }}</h2>
+
+          <md-menu md-position-mode="target-right bottom">
+            <md-button ng-click="$mdMenu.open($event)" class="md-icon-button" aria-label="user menu">
+              <md-icon md-svg-src="dist/drop_down_24px.svg" class="s24" aria-label="down arrow" ></md-icon>
+            </md-button>
+            <md-menu-content>
+              <md-menu-item><md-button ng-click="$ctrl.logout()">logout</md-button></md-menu-item>
+            </md-menu-content>
+          </md-menu>
+  
+      </div>
+    </md-toolbar>

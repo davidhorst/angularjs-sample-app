@@ -1,0 +1,28 @@
+<md-sidenav
+  md-component-id="sidenav"
+  style="background-color:#37474F"
+  flex
+  class="site-sidenav md-sidenav-left"
+  md-component-id="left-menu"
+  md-is-locked-open="$mdMedia('gt-sm')"
+  md-whiteframe="4">
+
+  <md-toolbar layout-align="center center" class="md-hue-2">
+      <!-- <a href ng-click="nav.goHome()"> -->
+      <img src="dist/logo.png" alt="Company Logo" ui-sref="welcome" href="">
+
+      </a>
+  </md-toolbar>
+  <md-toolbar  class="md-hue-2" role="navigation">
+      <ul class="side-menu">
+        <md-divider></md-divider>
+        <li ng-repeat="item in $ctrl.menuItems">
+            <md-button ui-sref="{{ item.state }}" layout="row" layout-fill>
+                {{ item.title }}
+            </md-button>
+            <md-divider></md-divider>
+          </li>  
+      </ul>
+      <span flex></span>
+  </md-toolbar>
+</md-sidenav>

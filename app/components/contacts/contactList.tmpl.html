@@ -1,0 +1,20 @@
+<md-list class="md-dense">
+  <md-list-item>
+    <!-- This link is a relative ui-sref to the contacts.new state. -->
+    <md-button ui-sref=".new" class="md-primary md-raised"> New Contact </md-button>
+  </md-list-item>
+    <!-- Highlight the selected contact:
+    When the current state matches the ui-sref's state (and its parameters)
+    ui-sref-active applies the 'selected' class to the a element -->
+  <md-list-item 
+    ng-click="null" 
+    ng-repeat="contact in $ctrl.contacts" 
+    ui-sref=".contact({contactId: contact._id})" 
+    ui-sref-active="selected"
+    style="height:1.7em; min-height: initial;">
+    <span>
+    {{contact.name.first}} {{contact.name.last}}
+    </span>
+  </md-list-item>
+</md-list>
+

@@ -1,0 +1,85 @@
+<div class="contact">
+  <md-card flex="40" class="details">
+    <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">Contact Form</span>
+        </md-card-title-text>
+    </md-card-title>
+    <md-card-content>
+      <form name="contactForm">
+        <div layout-gt-xs="row">
+          <md-input-container class="md-block">
+            <label>First Name</label>
+            <input md-maxlength="30" required name="firstName" ng-model="$ctrl.contact.name.first">
+            <div ng-messages="contactForm.firstName.$error">
+              <div ng-message="required">This is required.</div>
+              <div ng-message="md-maxlength">The name must be less than 30 characters long.</div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block">
+              <label>Last Name</label>
+              <input md-maxlength="30" required name="lastName" ng-model="$ctrl.contact.name.last">
+              <div ng-messages="contactForm.lastName.$error">
+                <div ng-message="required">This is required.</div>
+                <div ng-message="md-maxlength">The name must be less than 30 characters long.</div>
+              </div>
+          </md-input-container>
+        </div>
+  
+        <md-input-container class="md-block">
+            <label>Company</label>
+            <input md-maxlength="30" name="company" ng-model="$ctrl.contact.company">
+            <div ng-messages="contactForm.company.$error">
+              <div ng-message="md-maxlength">The company name must be less than 30 characters long.</div>
+            </div>
+        </md-input-container>
+        <div layout-gt-xs="row">
+          <md-input-container class="md-block">
+              <label>Age</label>
+              <input name="age" type="number" ng-model="$ctrl.contact.age">
+              <div ng-messages="contactForm.age.$error">
+                <div ng-message="number">Ages are numbers.</div>
+              </div>
+          </md-input-container>
+          <md-input-container flex class="md-block">
+              <label>Phone</label>
+              <input name="phoneNumber" type="tel" ng-model="$ctrl.contact.phone">
+              <div ng-messages="contactForm.phoneNumber.$error">
+                <div ng-message="tel">phone numbers are numbers. It's in the name.</div>
+              </div>
+          </md-input-container>
+        </div>
+        <md-input-container class="md-block">
+            <label>Email</label>
+            <input name="email" type="email" ng-model="$ctrl.contact.email">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Street Address</label>
+            <input md-maxlength="30" name="street" ng-model="$ctrl.contact.address.street">
+        </md-input-container>
+        <div layout-gt-xs="row">
+            <md-input-container class="md-block">
+                <label>City</label>
+                <input name="city" ng-model="$ctrl.contact.address.city">
+            </md-input-container>
+            <md-input-container flex class="md-block">
+                <label>State</label>
+                <input name="state" ng-model="$ctrl.contact.address.state">
+            </md-input-container>
+            <md-input-container flex class="md-block">
+                <label>Zip Code</label>
+                <input type="number" md-maxlength="5" name="zip" ng-model="$ctrl.contact.address.zip">
+                <div ng-messages="contactForm.company.$error">
+                  <div ng-message="md-maxlength">Invalid Zipcode.</div>
+                </div>
+            </md-input-container>
+        </div>
+      </form> 
+    </md-card-content>
+    <md-card-actions layout="row" layout-align="end center">
+      <md-button ui-sref="^">Cancel</md-button>
+      <md-button ng-click="$ctrl.save($ctrl.contact)">Save</md-button>
+      <md-button ng-click="$ctrl.remove($ctrl.contact)">Delete</md-button>
+    </md-card-actions>  
+  </md-card>
+</div>

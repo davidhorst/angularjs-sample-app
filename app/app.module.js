@@ -24,11 +24,10 @@ export const taternetApp = angular.module("taternet", [
   ocLazyLoad,
   ComponentsModule,
   CommonModule
-
+  
   // remaining modules are lazy loaded via future states in components.states.js
 ])
   .config(materialConfigBlock)
   .config(uiRouterConfigBlock)
-  // .config(baseStateConfigBlock)
   .config(otherwiseConfigBlock);
 

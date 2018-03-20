@@ -10,24 +10,22 @@ import {MessageListUI} from "./services/messagesListUI.service";
 
 import {composeState, messageState, messageListState, mymessagesState} from "./mymessages.states";
 
-export const MYMESSAGES_MODULE = angular.module('mymessages', []);
+export const MYMESSAGES_MODULE = angular.module('mymessages', [])
+  .directive('sortMessages', sortMessages)
+  .component('compose', compose)
+  .component('folderList', folderList)
+  .component('message', message)
+  .component('messageList', messageList)
+  .component('mymessages', mymessages)
+  .component('messageTable', messageTable)
 
-MYMESSAGES_MODULE.directive('sortMessages', sortMessages);
+  .filter('messageBody', messageBody)
 
-MYMESSAGES_MODULE.component('compose', compose);
-MYMESSAGES_MODULE.component('folderList', folderList);
-MYMESSAGES_MODULE.component('message', message);
-MYMESSAGES_MODULE.component('messageList', messageList);
-MYMESSAGES_MODULE.component('mymessages', mymessages);
-MYMESSAGES_MODULE.component('messageTable', messageTable);
+  .service('MessageListUI', MessageListUI)
 
-MYMESSAGES_MODULE.filter('messageBody', messageBody);
-
-MYMESSAGES_MODULE.service('MessageListUI', MessageListUI);
-
-MYMESSAGES_MODULE.config(['$stateRegistryProvider', function($stateRegistry) {
-  $stateRegistry.register(composeState);
-  $stateRegistry.register(messageState);
-  $stateRegistry.register(messageListState);
-  $stateRegistry.register(mymessagesState);
-}]);
+  .config(['$stateRegistryProvider', function($stateRegistry) {
+    $stateRegistry.register(composeState);
+    $stateRegistry.register(messageState);
+    $stateRegistry.register(messageListState);
+    $stateRegistry.register(mymessagesState);
+  }]);

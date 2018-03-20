@@ -12,8 +12,7 @@ import { topNav } from "./shell/topNav/topNav.component";
 import { shellState } from "./shell/shell.state";
 import { SideNavItemService } from "./shell/sideNav/menu.service";
 
-export const CommonModule = angular
-  .module('common', [])
+export const CommonModule = angular.module('common', [])
   .directive('dialog', dialog)
   .service('AppConfig', AppConfig)
   .service('AuthService', AuthService)

@@ -7,17 +7,17 @@ import * as angular from "angular";
 
 import {contactsState, editContactState, newContactState, viewContactState} from "./contacts.states";
 
-export const CONTACTS_MODULE = angular.module('contacts', []);
+export const CONTACTS_MODULE = angular.module('contacts', [])
 
-CONTACTS_MODULE.component('contactView', contactView);
-CONTACTS_MODULE.component('contacts', contacts);
-CONTACTS_MODULE.component('editContact', editContact);
-CONTACTS_MODULE.component('contactDetail', contactDetail);
-CONTACTS_MODULE.component('contactList', contactList);
+  .component('contactView', contactView)
+  .component('contacts', contacts)
+  .component('editContact', editContact)
+  .component('contactDetail', contactDetail)
+  .component('contactList', contactList)
 
-CONTACTS_MODULE.config(['$stateRegistryProvider', function($stateRegistry) {
-  $stateRegistry.register(contactsState);
-  $stateRegistry.register(newContactState);
-  $stateRegistry.register(viewContactState);
-  $stateRegistry.register(editContactState);
-}]);
+  .config(['$stateRegistryProvider', function($stateRegistry) {
+    $stateRegistry.register(contactsState);
+    $stateRegistry.register(newContactState);
+    $stateRegistry.register(viewContactState);
+    $stateRegistry.register(editContactState);
+  }]);

@@ -1,10 +1,10 @@
 {
-  "name": "sample-app-angularjs",
-  "description": "Sample app for UI-Router for AngularJS",
+  "name": "angularjs-sample-app",
+  "description": "Sample app for AngularJS ",
   "version": "1.0.2",
   "scripts": {
     "start": "webpack-dev-server --progress --open",
-    "build": "webpack --progress",
+    "build": "webpack --progress --optimize-minimize",
     "test": "run-s build e2e",
     "e2e": "run-p -r browser-sync cypress",
     "browser-sync": "browser-sync --port 4000 --no-open",
@@ -15,6 +15,10 @@
     {
       "name": "Chris Thielen",
       "web": "https://github.com/christopherthielen"
+    },
+    {
+      "name": "David Horst",
+      "web": "https://github.com/davidhorst"
     }
   ],
   "license": "MIT",
@@ -28,16 +32,29 @@
     "@uirouter/sticky-states": "1.5.0",
     "@uirouter/visualizer": "6.0.0",
     "angular": "1.6.9",
+    "angular-animate": "^1.6.9",
+    "angular-aria": "^1.6.9",
+    "angular-material": "^1.1.7",
+    "angular-messages": "^1.6.9",
+    "npm": "^5.7.1",
     "oclazyload": "1.1.0"
   },
   "devDependencies": {
     "babel-core": "6.26.0",
+    "babel-eslint": "^8.2.2",
     "babel-loader": "7.1.4",
+    "babel-plugin-angularjs-annotate": "^0.8.2",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-preset-es2015": "6.24.1",
     "babel-preset-es2015-ie": "6.7.0",
     "browser-sync": "2.23.6",
     "cypress": "2.1.0",
+    "eslint": "^4.19.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-standard": "^3.0.1",
     "npm-run-all": "4.1.2",
     "source-map-loader": "0.2.3",
     "wait-on": "2.1.0",

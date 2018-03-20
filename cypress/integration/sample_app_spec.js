@@ -51,7 +51,7 @@ describe('unauthenticated sample app', () => {
 });
 
 describe('authenticated sample app', () => {
-  var _appConfig = null;
+  let _appConfig = null;
   beforeEach(() => {
     const applyAppConfig = () =>  {
       window.sessionStorage.clear();
@@ -70,7 +70,8 @@ describe('authenticated sample app', () => {
           _appConfig = appConfig;
         })
         .then(applyAppConfig);
-    } else {
+    }
+    else {
       applyAppConfig();
     }
   });

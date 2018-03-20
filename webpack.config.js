@@ -1,21 +1,21 @@
-var webpack = require('webpack');
-var path = require('path');
+const webpack = require('webpack');
+const path = require('path');
 
-var DEV_SERVER = process.argv[1].indexOf('webpack-dev-server') !== -1;
-var DEV = DEV_SERVER || process.env.DEV;
+const DEV_SERVER = process.argv[1].indexOf('webpack-dev-server') !== -1;
+const DEV = DEV_SERVER || process.env.DEV;
 
 module.exports = {
   mode: DEV ? 'development' : 'production',
   entry: {
-    "sampleapp": "./app/bootstrap/bootstrap.js",
+    taternet: "./app/entryPoint.js"
   },
 
   devtool: DEV ? 'eval' :'source-map',
 
   output: {
-    path: path.join(__dirname, "_bundles"),
-    publicPath: '_bundles/',
-    filename: "[name].js",
+    path: path.join(__dirname, "dist"),
+    publicPath: 'dist/',
+    filename: "[name].bundle.js"
   },
 
   resolve: {
@@ -33,8 +33,8 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /(node_modules)/,
-        use: { loader: 'babel-loader' },
+        use: { loader: 'babel-loader' }
       }
     ]
-  },
+  }
 };

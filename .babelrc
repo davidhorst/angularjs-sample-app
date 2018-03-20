@@ -1,4 +1,5 @@
+
 {
   "presets": [ "es2015-ie" ],
-  "plugins": [ "syntax-dynamic-import" ]
+  "plugins": ["syntax-dynamic-import", "angularjs-annotate"]
 }

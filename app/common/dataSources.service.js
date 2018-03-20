@@ -1,4 +1,4 @@
-import {SessionStorage} from "../utilities/sessionStorage"
+import {SessionStorage} from "../utilities/sessionStorage";
 
 /**
  * Fake REST Services (Contacts, Folders, Messages) used in the mymessages submodule.
@@ -41,8 +41,8 @@ export class Messages extends SessionStorage {
   }
 
   byFolder(folder) {
-    let searchObject = { folder: folder._id };
-    let toFromAttr = ["drafts", "sent"].indexOf(folder._id) !== -1 ? "from" : "to";
+    const searchObject = { folder: folder._id };
+    const toFromAttr = ["drafts", "sent"].indexOf(folder._id) !== -1 ? "from" : "to";
     searchObject[toFromAttr] = this.AppConfig.emailAddress;
     return this.search(searchObject);
   }

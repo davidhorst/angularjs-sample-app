@@ -3,13 +3,13 @@
  */
 class PrefsController {
   constructor(AppConfig) {
-    this.AppConfig = AppConfig
+    this.AppConfig = AppConfig;
   }
 
   $onInit() {
     this.prefs = {
       restDelay: this.AppConfig.restDelay
-    }
+    };
   }
 
   /** Clear out the session storage */

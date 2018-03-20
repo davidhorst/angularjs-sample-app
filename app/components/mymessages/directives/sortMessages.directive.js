@@ -5,7 +5,7 @@ sortMessages.$inject = ['AppConfig'];
 export function sortMessages(AppConfig) {
   return {
     restrict: 'A',
-    link: function(scope, elem, attrs) {
+    link(scope, elem, attrs) {
       let col = attrs.sortMessages;
       if (!col) return;
       let chevron = angular.element("<i style='padding-left: 0.25em' class='fa'></i>");
@@ -17,5 +17,5 @@ export function sortMessages(AppConfig) {
         chevron.toggleClass("fa-sort-desc", newVal == `-${col}`);
       });
     }
-  }
+  };
 }

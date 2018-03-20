@@ -2,6 +2,7 @@ import {setProp} from "../../utilities/util";
 
 /** Helper function to prefix a message with "fwd: " or "re: " */
 const prefixSubject = (prefix, message) => prefix + message.subject;
+
 /** Helper function which quotes an email message */
 const quoteMessage = (message) => `
 
@@ -50,7 +51,7 @@ class MessageController {
    * Compose a new message as a reply to this one
    */
   reply(message) {
-    let replyMsg = makeResponseMsg("Re: ", message);
+    const replyMsg = makeResponseMsg("Re: ", message);
     this.$state.go('mymessages.compose', { message: replyMsg });
   };
 
@@ -58,7 +59,7 @@ class MessageController {
    * Compose a new message as a forward of this one.
    */
   forward(message) {
-    let fwdMsg = makeResponseMsg("Fwd: ", message);
+    const fwdMsg = makeResponseMsg("Fwd: ", message);
     delete fwdMsg.to;
     this.$state.go('mymessages.compose', { message: fwdMsg });
   };
@@ -67,7 +68,7 @@ class MessageController {
    * Continue composing this (draft) message
    */
   editDraft(message) {
-    this.$state.go('mymessages.compose', { message: message });
+    this.$state.go('mymessages.compose', { message });
   };
 
   /**
@@ -79,13 +80,13 @@ class MessageController {
    * - show that message
    */
   remove(message) {
-    let nextMessageId = this.nextMessageGetter(message._id);
-    let nextState = nextMessageId ? 'mymessages.messagelist.message' : 'mymessages.messagelist';
-    let params = { messageId: nextMessageId };
+    const nextMessageId = this.nextMessageGetter(message._id);
+    const nextState = nextMessageId ? 'mymessages.messagelist.message' : 'mymessages.messagelist';
+    const params = { messageId: nextMessageId };
 
     this.DialogService.confirm("Delete?", undefined)
-        .then(() => this.Messages.remove(message))
-        .then(() => this.$state.go(nextState, params, { reload: 'mymessages.messagelist' }));
+      .then(() => this.Messages.remove(message))
+      .then(() => this.$state.go(nextState, params, { reload: 'mymessages.messagelist' }));
   };
 }
 MessageController.$inject = ['$state', 'DialogService', 'Messages'];

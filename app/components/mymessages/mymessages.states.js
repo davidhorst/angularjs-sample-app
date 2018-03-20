@@ -25,7 +25,7 @@ export const mymessagesState = {
   deepStateRedirect: {
     default: { state: 'mymessages.messagelist' }
   },
-  sticky: true,
+  sticky: true
 };
 
 

@@ -25,21 +25,21 @@ export class AuthService {
    * Delays 800ms to simulate an async REST API delay.
    */
   authenticate(username, password) {
-    let { $timeout, $q, AppConfig } = this;
+    const { $timeout, $q, AppConfig } = this;
 
     // checks if the username is one of the known usernames, and the password is 'password'
     const checkCredentials = () => $q((resolve, reject) => {
-      var validUsername = this.usernames.indexOf(username) !== -1;
-      var validPassword = password === 'password';
+      const validUsername = this.usernames.indexOf(username) !== -1;
+      const validPassword = password === 'password';
 
       return (validUsername && validPassword) ? resolve(username) : reject("Invalid username or password");
     });
 
     return $timeout(checkCredentials, 800)
-        .then((authenticatedUser) => {
-          AppConfig.emailAddress = authenticatedUser;
-          AppConfig.save()
-        });
+      .then((authenticatedUser) => {
+        AppConfig.emailAddress = authenticatedUser;
+        AppConfig.save();
+      });
   }
 
   /** Logs the current user out */

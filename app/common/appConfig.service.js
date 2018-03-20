@@ -11,8 +11,9 @@ export class AppConfig {
 
   load() {
     try {
-      return angular.extend(this, angular.fromJson(sessionStorage.getItem("appConfig")))
-    } catch (Error) { }
+      return angular.extend(this, angular.fromJson(sessionStorage.getItem("appConfig")));
+    } 
+    catch (Error) { }
 
     return this;
   }

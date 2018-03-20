@@ -18,7 +18,7 @@ import { ComponentsModule } from './components/components.module';
 import { CommonModule } from './common/common.module';
 import { materialConfigBlock, uiRouterConfigBlock, otherwiseConfigBlock } from './app.config';
 
-export const taternetApp = angular.module("taternet", [
+export const App = angular.module("app", [
   'ngMaterial',
   uiRouter,
   ocLazyLoad,
@@ -29,6 +29,5 @@ export const taternetApp = angular.module("taternet", [
 ])
   .config(materialConfigBlock)
   .config(uiRouterConfigBlock)
-  // .config(baseStateConfigBlock)
   .config(otherwiseConfigBlock);
 

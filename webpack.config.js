@@ -7,7 +7,7 @@ const DEV = DEV_SERVER || process.env.DEV;
 module.exports = {
   mode: DEV ? 'development' : 'production',
   entry: {
-    taternet: "./app/entryPoint.js"
+    app: "./app/entryPoint.js"
   },
 
   devtool: DEV ? 'eval' :'source-map',
